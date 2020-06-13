@@ -15,6 +15,7 @@ var (
 	client        *gsclient.Client
 	jsonFlag      bool
 	idFlag        bool
+	quiteFlag        bool
 	rowsToDisplay = 4
 )
 
@@ -51,6 +52,7 @@ func init() {
 	rootCmd.PersistentFlags().StringVar(&account, "account", "", "the account used, 'default' if none given")
 	rootCmd.PersistentFlags().BoolVarP(&jsonFlag, "json", "j", false, "Print output as JSON")
 	rootCmd.PersistentFlags().BoolVarP(&idFlag, "id", "i", false, "Adds UUID column")
+	rootCmd.PersistentFlags().BoolVarP(&quietFlag, "quiet", "i", false, "Prints only the uuid.")
 
 	rootCmd.AddCommand(kubernetesCmd)
 	kubernetesCmd.AddCommand(clusterCmd)
